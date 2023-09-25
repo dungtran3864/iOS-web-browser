@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Browser View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="BYZ-38-t0r" customClass="BrowserViewController" customModule="NeevaChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PGl-zw-g8x">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type in the URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RV3-q4-nwh">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="p6Z-uj-bAY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                    </textField>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfz-vj-YNH">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="746"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Shk-py-I2X">
+                                        <rect key="frame" x="0.0" y="796" width="414" height="22"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qi0-8a-4HZ" userLabel="Backward Page">
+                                                <rect key="frame" x="0.0" y="0.0" width="83" height="22"/>
+                                                <state key="normal" image="chevron.backward" catalog="system"/>
+                                                <connections>
+                                                    <action selector="goBackPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zYX-M5-DWK"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGu-X2-lvg" userLabel="Bookmarks">
+                                                <rect key="frame" x="83" y="0.0" width="82.5" height="22"/>
+                                                <state key="normal" image="bookmark" catalog="system"/>
+                                                <connections>
+                                                    <action selector="addBookmarkPressed:" destination="UGC-ev-fWG" eventType="touchUpInside" id="cvh-v9-Cry"/>
+                                                    <action selector="bookmarkSwitcherPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OGV-B9-OSY"/>
+                                                    <segue destination="ZKM-In-LYv" kind="presentation" identifier="goToBookmarks" id="ykz-cO-M7T"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pa9-hf-dKg" userLabel="Refresh">
+                                                <rect key="frame" x="165.5" y="0.0" width="83" height="22"/>
+                                                <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                                <connections>
+                                                    <action selector="refreshBrowser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="znK-WR-cP1"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRD-JX-csj" userLabel="Tabs">
+                                                <rect key="frame" x="248.5" y="0.0" width="82.5" height="22"/>
+                                                <state key="normal" image="square.grid.2x2" catalog="system">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tabSwitcherPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xVl-iy-Juz"/>
+                                                    <segue destination="hmP-Qd-HYC" kind="presentation" identifier="goToTabs" id="od7-P8-YM9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDT-5c-RdB" userLabel="Forward Page">
+                                                <rect key="frame" x="331" y="0.0" width="83" height="22"/>
+                                                <state key="normal" image="chevron.forward" catalog="system"/>
+                                                <connections>
+                                                    <action selector="goForwardPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zXL-sY-sKM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PGl-zw-g8x" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2wk-O0-3yb"/>
+                            <constraint firstItem="PGl-zw-g8x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Jne-gr-kkp"/>
+                            <constraint firstItem="PGl-zw-g8x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NjH-s3-WCr"/>
+                            <constraint firstItem="PGl-zw-g8x" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eEk-Co-Z6c"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="8Um-PD-V04"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="URLTextField" destination="RV3-q4-nwh" id="v24-XU-miR"/>
+                        <outlet property="bookmarkButton" destination="cGu-X2-lvg" id="A04-wF-wIV"/>
+                        <outlet property="webView" destination="sfz-vj-YNH" id="QUW-7I-jWN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="UGC-ev-fWG" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="713.04347826086962" y="111.83035714285714"/>
+        </scene>
+        <!--Bookmarks View Controller-->
+        <scene sceneID="XeD-DI-tbL">
+            <objects>
+                <viewController id="ZKM-In-LYv" customClass="BookmarksViewController" customModule="NeevaChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="13n-Lj-Oa0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="btb-45-dSm">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3IW-aL-304">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                        <items>
+                                            <navigationItem title="Bookmarks" id="1Fw-vB-bpQ">
+                                                <barButtonItem key="leftBarButtonItem" title="Cancel" id="f3J-61-OPU">
+                                                    <connections>
+                                                        <action selector="cancelPressed:" destination="ZKM-In-LYv" id="Zqb-AX-Mcs"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ej3-Xb-HqX">
+                                        <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BookmarkCell" id="iFR-qz-gUb" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iFR-qz-gUb" id="SIx-Ci-eGy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kte-3t-Q8h"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="btb-45-dSm" firstAttribute="leading" secondItem="kte-3t-Q8h" secondAttribute="leading" id="0Bt-9L-xNp"/>
+                            <constraint firstItem="btb-45-dSm" firstAttribute="trailing" secondItem="kte-3t-Q8h" secondAttribute="trailing" id="2sA-KJ-IgH"/>
+                            <constraint firstItem="kte-3t-Q8h" firstAttribute="bottom" secondItem="btb-45-dSm" secondAttribute="bottom" id="6No-c6-ZlB"/>
+                            <constraint firstItem="btb-45-dSm" firstAttribute="top" secondItem="kte-3t-Q8h" secondAttribute="top" id="LeF-g8-Qm2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Ej3-Xb-HqX" id="Zfn-lb-dqh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rrL-67-8Xd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="711.59420289855075" y="885.9375"/>
+        </scene>
+        <!--Tabs View Controller-->
+        <scene sceneID="sgj-QM-3Qg">
+            <objects>
+                <viewController id="hmP-Qd-HYC" customClass="TabsViewController" customModule="NeevaChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rgG-BM-xZY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3jf-s3-VOX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6s7-H2-tMf">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                        <items>
+                                            <navigationItem title="Tabs" id="KZv-KM-sQM">
+                                                <barButtonItem key="leftBarButtonItem" title="Cancel" id="Zei-CN-LTs">
+                                                    <connections>
+                                                        <action selector="cancelPressed:" destination="hmP-Qd-HYC" id="2Gl-RR-XBF"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="FdB-fd-kyj">
+                                                    <connections>
+                                                        <action selector="addTabPressed:" destination="hmP-Qd-HYC" id="ZEU-PH-bqe"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i3F-bx-UE1">
+                                        <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TabCell" id="UYH-eD-Yid" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UYH-eD-Yid" id="a3G-7a-2KP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="esE-If-FLU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3jf-s3-VOX" firstAttribute="top" secondItem="esE-If-FLU" secondAttribute="top" id="2zT-IL-18A"/>
+                            <constraint firstItem="3jf-s3-VOX" firstAttribute="trailing" secondItem="esE-If-FLU" secondAttribute="trailing" id="MLi-x9-cc0"/>
+                            <constraint firstItem="3jf-s3-VOX" firstAttribute="leading" secondItem="esE-If-FLU" secondAttribute="leading" id="Rtf-Bu-vSS"/>
+                            <constraint firstItem="3jf-s3-VOX" firstAttribute="bottom" secondItem="esE-If-FLU" secondAttribute="bottom" id="aNp-Cc-8XJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="i3F-bx-UE1" id="MWN-Af-2MN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zb8-h2-3KD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1671.0144927536232" y="111.83035714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="bookmark" catalog="system" width="112" height="128"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
